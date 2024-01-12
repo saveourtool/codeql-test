@@ -7,24 +7,20 @@ on:
       - 'develop'
 
 jobs:
-  install_and_run_codeql:
+  download_codeql:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
-      - uses: advanced-security/codeql-bundle-action/download-bundle@v2
-        id: download-bundle
-        with:
-          tag: "latest"
-      - uses: advanced-security/codeql-bundle-action/create-bundle@v2
-        id: create-bundle
-        with:
-          bundle-path: ${{ steps.download-bundle.outputs.bundle-path }}
-          packs: "octo/cpp-queries,octo/cpp-all,octo/cpp-customizations"
-      - uses: actions/upload-artifact@v3
-        with:
-          name: codeql-bundle.tar.gz
-          path: ${{ steps.create-bundle.outputs.output-path }}
       - run: |
-          tar -xzf ${{ steps.create-bundle.outputs.output-path }}
+          curl -sSLO https://github.com/github/codeql-action/releases/download/codeql-bundle-v2.16.0/codeql-bundle.tar.gz
+
+  install_and_run_codeql:
+    needs: download_codeql
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          tar -xzf codeql-bundle.tar.gz
           codeql test run languages\cpp
