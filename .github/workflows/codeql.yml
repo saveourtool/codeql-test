@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          curl -sSLO https://github.com/github/codeql-action/releases/download/codeql-bundle-v2.16.0/codeql-bundle.tar.gz
+          curl -sSLO https://github.com/github/codeql-action/releases/download/codeql-bundle-v2.15.5/codeql-bundle-linux64.tar.gz | tar -xz
 
   install_and_run_codeql:
     needs: download_codeql
@@ -22,5 +22,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          tar -xzf codeql-bundle.tar.gz
-          codeql test run languages\cpp
+          codeql/codeql test run languages/cpp
