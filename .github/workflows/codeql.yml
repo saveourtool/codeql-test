@@ -16,7 +16,7 @@ jobs:
 
       - name: Download and extract codeql-bundle
         run: |
-          curl -v -sSLO https://github.com/github/codeql-action/releases/download/codeql-bundle-v2.15.5/codeql-bundle-linux64.tar.gz
+          curl -sSLO https://github.com/saveourtool/diktat/releases/download/v2.0.0/diktat
 
       - name: Run codeQL
         run: |
