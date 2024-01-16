@@ -16,7 +16,7 @@ jobs:
 
       - name: Download and extract codeql-bundle
         run: |
-          sudo curl -sSLO https://github.com/saveourtool/diktat/releases/download/v2.0.0/diktat
+          sudo curl -v -sSLO https://github.com/saveourtool/diktat/releases/download/v2.0.0/diktat
 
       - name: Run codeQL
         run: |
