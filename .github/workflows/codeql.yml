@@ -21,4 +21,4 @@ jobs:
         run: |
           tar -xzf codeql-bundle-linux64.tar.gz
           ls -la
-          codeql-bundle-linux64/codeql test run languages/cpp
+          codeql/codeql test run languages/cpp
