@@ -17,7 +17,8 @@ jobs:
       - name: Download and extract codeql-bundle
         run: |
           sudo curl -v -sSLO https://github.com/github/codeql-action/releases/download/codeql-bundle-v2.15.5/codeql-bundle-linux64.tar.gz
-          ls -la
       - name: Run codeQL
         run: |
-          codeql-bundle/codeql test run languages/cpp
+          ls -la
+          tar -xzvf codeql-bundle-linux64.tar.gz
+          codeql-bundle-linux64/codeql test run languages/cpp
