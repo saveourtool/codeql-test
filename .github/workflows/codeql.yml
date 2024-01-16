@@ -2,6 +2,8 @@ name: Download and run codeQL
 
 on:
   pull_request:
+    branches:
+      - 'master'
   push:
     branches:
       - 'master'
