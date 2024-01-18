@@ -1,3 +1,5 @@
+#include "five"
+
 int get_square(int number = 0) {
     return number * number;
 }
@@ -8,7 +10,7 @@ int foo1() {
     do {
         do {
             a++;
-        } while (get_square(5) < a);
+        } while (get_square(FIVE) < a);
         b--;
     } while (get_square(a) > b);
     return a;
@@ -24,7 +26,7 @@ int foo2() {
 
 int foo3() {
     int a = 0;
-    bool flag = get_square(5) != 25;
+    bool flag = get_square(FIVE) != 25;
     do {
         a++;
     } while (flag);
