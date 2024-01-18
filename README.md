@@ -7,8 +7,15 @@
 ```shell
 codeql test run -- <test|dir>
 ```
-Where `<test|dir>` is .ql or .qlref file that defines a test to run or directory which will be searched recursively for tests to run. 
-To run the test cases, use the path to the `languages` folder.
+Where `<test|dir>` is `.ql` file that defines a test to run or directory which will be searched recursively for tests to run. 
+To run the test cases, use the path to the `codeWithQueries` folder.
+
+If you want to put `.ql` files are separate from `.cpp` files, then you can use the command:
+```shell
+codeql test run --additional-packs=<queries-dir> -- <test|dir>
+```
+Where `<queries-dir>` is dir with `.ql` files and `<test|dir>` is `.qlref` file or directory which will be searched recursively for tests to run.
+To run the test cases, use the path to the folders `queries` and `code`.
 
 After run, you will see the `NAME.actual` files (whose name matches to the `NAME.ql` test files).
 Each such file contains the result of running the test.

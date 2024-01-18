@@ -1,4 +1,4 @@
-name: codeql-test-examples
+name: codeql-code-with-queries-test
 dependencies:
   codeql/cpp-all: "*"
 extractor: cpp

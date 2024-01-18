@@ -23,4 +23,5 @@ jobs:
           tar -xzf codeql-bundle-linux64.tar.gz
       - name: Run codeQL
         run: |
-          codeql/codeql test run languages/cpp
+          codeql/codeql test run -- codeWithQueries/cpp
+          codeql/codeql test run --additional-packs=queries/cpp -- code/cpp

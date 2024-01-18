@@ -1,0 +1,5 @@
+name: codeql-queries-test
+dependencies:
+  codeql/cpp-all: "*"
+extractor: cpp
+tests: .
